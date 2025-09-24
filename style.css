@@ -1,0 +1,65 @@
+.tree-container {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  width: 350px;
+}
+
+.tree, .nested {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tree li {
+  position: relative;
+  margin: 4px 0;
+}
+
+.tree li::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: -12px;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width: 12px;
+  height: 100%;
+}
+
+.tree li:last-child::before {
+  border-left: 1px solid transparent; /* remove line for last child */
+}
+
+.caret {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.caret::before {
+  content: "\25B6"; /* right-pointing triangle */
+  color: gray;
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s;
+}
+
+.caret-down::before {
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+  border-left: 1px solid #ddd;
+  margin-left: 8px;
+  padding-left: 12px;
+}
+
+.active {
+  display: block;
+}
